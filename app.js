@@ -10,8 +10,8 @@ Last Modified: 12th Sept 2023 2:56 PM
 
 import './styles.css';
 
-// Code to run when the DOM content has loaded
-document.addEventListener('DOMContentLoaded', () => {
+// Code to run when the page has loaded
+window.addEventListener('DOMContentLoaded', () => {
     // Tutorial Sidebar code used on the Portal, Tutorial Tags, Tutorials, Blogs, Blog Tags, and Blog Posts pages.
     function init_tutorial_sidebar () {
         const children = document.querySelectorAll('.tutorial-links a');
