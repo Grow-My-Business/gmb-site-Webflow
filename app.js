@@ -55,59 +55,60 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             });
-        }    
+        }
+
+        function init_tutorial_sidebar_search () {
+            const input = document.getElementById('sidebar-search');
+            console.log(input);
+            if (input === null) return;
+            const sidebar = document.querySelector('.sidebar-list');
+            const dropdowns = sidebar.querySelectorAll('.sidebar-dropdown');
+    
+            input.addEventListener('input', () => {
+                const active = document.querySelector('.sidebar-dropdown.active');
+                const query = input.value.toLowerCase();
+                
+                dropdowns.forEach((dropdown) => {
+                    dropdown.classList.add('active');
+                    const children_wrap = dropdown.querySelector('.sidebar-dropdown-children');
+    
+                    if (query.length > 2) {
+    
+                        if (dropdown.innerHTML.toLowerCase().indexOf(query) === -1) {
+                            dropdown.classList.add('disabled');
+                        } else {
+                            dropdown.classList.remove('disabled');
+                            const links = dropdown.querySelectorAll('.tutorial-link');
+                            links.forEach((link) => {
+                                if ((link.innerText.toLowerCase().indexOf(query) === -1) && (children_wrap.innerText.toLowerCase().indexOf(query) !== -1)) {
+                                    link.classList.add('disabled');
+                                } else {
+                                    link.classList.remove('disabled');
+                                }
+                            });
+                        }
+                    } else {
+                        dropdown.classList.remove('disabled');
+                        if (dropdown !== active) {
+                                dropdown.classList.remove('active');
+                                dropdown.querySelector('.sidebar-dropdown-children').style.maxHeight = '0';
+                        }
+    
+                        const disabled_children = dropdown.querySelectorAll('.disabled');
+    
+                        disabled_children.forEach((child) => {
+                            child.classList.remove('disabled');
+                        });
+                    }
+    
+                    children_wrap.style.maxHeight = `${(children_wrap.scrollHeight + 16)}px`;
+                });
+            });
+        }
+    
+        init_tutorial_sidebar_search();
     }
 
     init_tutorial_sidebar();
 
-    function init_tutorial_sidebar_search () {
-        const input = document.getElementById('sidebar-search');
-        console.log(input);
-        if (input === null) return;
-        const sidebar = document.querySelector('.sidebar-list');
-        const dropdowns = sidebar.querySelectorAll('.sidebar-dropdown');
-
-        input.addEventListener('input', () => {
-            const active = document.querySelector('.sidebar-dropdown.active');
-            const query = input.value.toLowerCase();
-            
-            dropdowns.forEach((dropdown) => {
-                dropdown.classList.add('active');
-                const children_wrap = dropdown.querySelector('.sidebar-dropdown-children');
-
-                if (query.length > 2) {
-
-                    if (dropdown.innerHTML.toLowerCase().indexOf(query) === -1) {
-                        dropdown.classList.add('disabled');
-                    } else {
-                        dropdown.classList.remove('disabled');
-                        const links = dropdown.querySelectorAll('.tutorial-link');
-                        links.forEach((link) => {
-                            if ((link.innerText.toLowerCase().indexOf(query) === -1) && (children_wrap.innerText.toLowerCase().indexOf(query) !== -1)) {
-                                link.classList.add('disabled');
-                            } else {
-                                link.classList.remove('disabled');
-                            }
-                        });
-                    }
-                } else {
-                    dropdown.classList.remove('disabled');
-                    if (dropdown !== active) {
-                            dropdown.classList.remove('active');
-                            dropdown.querySelector('.sidebar-dropdown-children').style.maxHeight = '0';
-                    }
-
-                    const disabled_children = dropdown.querySelectorAll('.disabled');
-
-                    disabled_children.forEach((child) => {
-                        child.classList.remove('disabled');
-                    });
-                }
-
-                children_wrap.style.maxHeight = `${(children_wrap.scrollHeight + 16)}px`;
-            });
-        });
-    }
-
-    init_tutorial_sidebar_search();
 });
