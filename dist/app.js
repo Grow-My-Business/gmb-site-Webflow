@@ -583,46 +583,50 @@ Date Created: 12th Sept 2023
 Last Modified: 12th Sept 2023
 
 */ var _stylesCss = require("./styles.css");
-// Tutorial Sidebar code used on the Portal, Tutorial Tags, Tutorials, Blogs, Blog Tags, and Blog Posts pages.
-function init_tutorial_sidebar() {
-    const children = document.querySelectorAll(".tutorial-links a");
-    // Check if there are children before running the code.
-    if (children.length > 0) {
-        children.forEach((child)=>{
-            const parent_id = child.getAttribute("slug");
-            if (parent_id !== "") {
-                const parent = document.getElementById(parent_id);
-                parent.appendChild(child);
-            }
-        });
-        //
-        const parents = document.querySelectorAll(".sidebar-dropdown");
-        parents[0].classList.add("active");
-        const prev_children_wrap = parents[0].querySelector(".sidebar-dropdown-children");
-        prev_children_wrap.style.maxHeight = `${prev_children_wrap.scrollHeight + 16}px`;
-        parents.forEach((parent, i)=>{
-            const children_wrap = parent.querySelector(".sidebar-dropdown-children");
-            if (window.location.pathname.indexOf(children_wrap.id) !== -1 && i !== 0) {
-                parent.classList.add("active");
-                children_wrap.style.maxHeight = `${children_wrap.scrollHeight + 16}px`;
-                parents[0].classList.remove("active");
-                prev_children_wrap.style.maxHeight = "0";
-            }
-            parent.addEventListener("click", ()=>{
-                if (parent.classList.contains("active")) {
-                    parent.classList.remove("active");
-                    children_wrap.style.maxHeight = "0";
-                } else {
-                    parent.classList.add("active");
-                    children_wrap.style.maxHeight = `${children_wrap.scrollHeight + 16}px`;
+// Code to run when the DOM content has loaded
+document.addEventListener("DOMContentLoaded", ()=>{
+    // Tutorial Sidebar code used on the Portal, Tutorial Tags, Tutorials, Blogs, Blog Tags, and Blog Posts pages.
+    function init_tutorial_sidebar() {
+        const children = document.querySelectorAll(".tutorial-links a");
+        // Check if there are children before running the code.
+        if (children.length > 0) {
+            children.forEach((child)=>{
+                const parent_id = child.getAttribute("slug");
+                if (parent_id !== "") {
+                    const parent = document.getElementById(parent_id);
+                    parent.appendChild(child);
                 }
             });
-        });
+            //
+            const parents = document.querySelectorAll(".sidebar-dropdown");
+            parents[0].classList.add("active");
+            const prev_children_wrap = parents[0].querySelector(".sidebar-dropdown-children");
+            prev_children_wrap.style.maxHeight = `${prev_children_wrap.scrollHeight + 16}px`;
+            parents.forEach((parent, i)=>{
+                const children_wrap = parent.querySelector(".sidebar-dropdown-children");
+                if (window.location.pathname.indexOf(children_wrap.id) !== -1 && i !== 0) {
+                    parent.classList.add("active");
+                    children_wrap.style.maxHeight = `${children_wrap.scrollHeight + 16}px`;
+                    parents[0].classList.remove("active");
+                    prev_children_wrap.style.maxHeight = "0";
+                }
+                parent.addEventListener("click", ()=>{
+                    if (parent.classList.contains("active")) {
+                        parent.classList.remove("active");
+                        children_wrap.style.maxHeight = "0";
+                    } else {
+                        parent.classList.add("active");
+                        children_wrap.style.maxHeight = `${children_wrap.scrollHeight + 16}px`;
+                    }
+                });
+            });
+        }
     }
     init_tutorial_sidebar();
-    //
-    function init_tutorial_sidebar_search1() {
+    function init_tutorial_sidebar_search() {
         const input = document.getElementById("sidebar-search");
+        console.log(input);
+        if (input === null) return;
         const sidebar = document.querySelector(".sidebar-list");
         const dropdowns = sidebar.querySelectorAll(".sidebar-dropdown");
         input.addEventListener("input", ()=>{
@@ -656,8 +660,8 @@ function init_tutorial_sidebar() {
             });
         });
     }
-}
-init_tutorial_sidebar_search();
+    init_tutorial_sidebar_search();
+});
 
 },{"./styles.css":"7N9bM"}],"7N9bM":[function() {},{}]},["cRheU","igcvL"], "igcvL", "parcelRequire92ed")
 
