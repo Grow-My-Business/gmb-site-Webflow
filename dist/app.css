@@ -8,4 +8,36 @@
   display: none;
 }
 
+.portal-content-area::-webkit-scrollbar {
+  width: 0;
+}
+
+.portal-sidebar::-webkit-scrollbar {
+  width: 0;
+}
+
+.portal-content-area::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.portal-sidebar::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.portal-content-area::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.portal-sidebar::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.portal-content-area::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.portal-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 /*# sourceMappingURL=app.css.map */

@@ -16,3 +16,25 @@
 .sidebar-dropdown:not(.has-children) {
     display: none;
 }
+
+/* Hide Scrollbar */
+
+.portal-content-area::-webkit-scrollbar,
+.portal-sidebar::-webkit-scrollbar {
+    width: 0px;
+}
+
+.portal-content-area::-webkit-scrollbar-track,
+.portal-sidebar::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+.portal-content-area::-webkit-scrollbar-thumb,
+.portal-sidebar::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.portal-content-area::-webkit-scrollbar-thumb:hover,
+.portal-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
