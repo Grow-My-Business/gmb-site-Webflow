@@ -12,3 +12,7 @@
 .sidebar-list .disabled {
     display: none;
 }
+
+.sidebar-dropdown:not(.has-children) {
+    display: none;
+}

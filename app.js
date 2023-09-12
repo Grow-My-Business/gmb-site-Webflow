@@ -13,26 +13,26 @@ import './styles.css';
 // Code to run when the page has loaded
 window.addEventListener('DOMContentLoaded', () => {
     // Tutorial Sidebar code used on the Portal, Tutorial Tags, Tutorials, Blogs, Blog Tags, and Blog Posts pages.
-    console.log('loaded');
 
     function init_tutorial_sidebar () {
-        console.log('init_tutorial_sidebar called');
         const children = document.querySelectorAll('.tutorial-links a');
 
         // Check if there are children before running the code.
         if (children.length > 0) {
-            console.log(`children ${children.length}`);
             children.forEach((child) => {
                 const parent_id = child.getAttribute('slug');
                 if (parent_id !== '') {
                     const parent = document.getElementById(parent_id);
                     parent.appendChild(child);
+                    if (!parent.classList.contains('has-children')) {
+                        parent.classList.add('has-children');
+                    }
                 }
             });
         
             //
             
-            const parents = document.querySelectorAll('.sidebar-dropdown');
+            const parents = document.querySelectorAll('.sidebar-dropdown.has-children');
             
             parents[0].classList.add('active');
             const prev_children_wrap = parents[0].querySelector('.sidebar-dropdown-children');
@@ -62,10 +62,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         function init_tutorial_sidebar_search () {
-            console.log('init_tutorial_sidebar_search called');
 
             const input = document.getElementById('sidebar-search');
-            console.log(input);
             if (input === null) return;
             const sidebar = document.querySelector('.sidebar-list');
             const dropdowns = sidebar.querySelectorAll('.sidebar-dropdown');

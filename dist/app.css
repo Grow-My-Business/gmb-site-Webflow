@@ -4,7 +4,7 @@
   overflow: hidden;
 }
 
-.sidebar-list .disabled {
+.sidebar-list .disabled, .sidebar-dropdown:not(.has-children) {
   display: none;
 }
 
