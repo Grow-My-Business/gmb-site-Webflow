@@ -13,11 +13,15 @@ import './styles.css';
 // Code to run when the page has loaded
 window.addEventListener('DOMContentLoaded', () => {
     // Tutorial Sidebar code used on the Portal, Tutorial Tags, Tutorials, Blogs, Blog Tags, and Blog Posts pages.
+    console.log('loaded');
+
     function init_tutorial_sidebar () {
+        console.log('init_tutorial_sidebar called');
         const children = document.querySelectorAll('.tutorial-links a');
 
         // Check if there are children before running the code.
         if (children.length > 0) {
+            console.log(`children ${children.length}`);
             children.forEach((child) => {
                 const parent_id = child.getAttribute('slug');
                 if (parent_id !== '') {
@@ -58,6 +62,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         function init_tutorial_sidebar_search () {
+            console.log('init_tutorial_sidebar_search called');
+
             const input = document.getElementById('sidebar-search');
             console.log(input);
             if (input === null) return;
