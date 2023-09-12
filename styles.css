@@ -1,0 +1,14 @@
+/* body {
+    background: black !important;
+} */
+
+/* Sidebar */
+.sidebar-dropdown .sidebar-dropdown-children {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 300ms ease;
+}
+
+.sidebar-list .disabled {
+    display: none;
+}

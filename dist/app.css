@@ -1,0 +1,11 @@
+.sidebar-dropdown .sidebar-dropdown-children {
+  max-height: 0;
+  transition: max-height .3s;
+  overflow: hidden;
+}
+
+.sidebar-list .disabled {
+  display: none;
+}
+
+/*# sourceMappingURL=app.css.map */
