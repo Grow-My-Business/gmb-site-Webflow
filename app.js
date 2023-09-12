@@ -24,8 +24,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 if (parent_id !== '') {
                     const parent = document.getElementById(parent_id);
                     parent.appendChild(child);
-                    if (!parent.parent.classList.contains('has-children')) {
-                        parent.parent.classList.add('has-children');
+                    if (!parent.parentElement.classList.contains('has-children')) {
+                        parent.parentElement.classList.add('has-children');
                     }
                 }
             });
