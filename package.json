@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/Grow-My-Business/gmb-site-webflow#readme",
   "dependencies": {
-    "parcel": "^2.9.3"
+    "dat.gui": "^0.7.9",
+    "parcel": "^2.9.3",
+    "postprocessing": "^6.33.0",
+    "three": "^0.156.1"
   }
 }
