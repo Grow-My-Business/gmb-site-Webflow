@@ -4,7 +4,7 @@
 
 .splide__arrows {
     position: absolute;
-    bottom: 0;
+    bottom: 50px;
     right: 2em;
     display: flex;
     grid-gap: 12px;

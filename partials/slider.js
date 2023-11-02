@@ -10,5 +10,12 @@ document.addEventListener( 'DOMContentLoaded', function () {
         autoplay: true,
         speed: 700,
         gap: 30,
+        breakpoints: {
+            992: {
+                gap: 20,
+                arrows: false,
+            },
+        }
+
       }).mount({}, custom_transition);
 });

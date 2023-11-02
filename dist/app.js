@@ -684,7 +684,13 @@ document.addEventListener("DOMContentLoaded", function() {
         pagination: false,
         autoplay: true,
         speed: 700,
-        gap: 30
+        gap: 30,
+        breakpoints: {
+            992: {
+                gap: 20,
+                arrows: false
+            }
+        }
     }).mount({}, (0, _customTransitionJs.custom_transition));
 });
 
