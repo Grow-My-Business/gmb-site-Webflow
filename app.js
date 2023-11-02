@@ -8,8 +8,11 @@ Last Modified: 14th Sept 2023 6:12 PM
 
 */
 
+// import '@splidejs/splide/css/core';
+// import '@splidejs/splide/js';
 import './styles.css';
 import './partials/sidebar.js';
-import './partials/confetti.js';
+import './partials/slider.js';
+// import './partials/confetti.js';
 // import './partials/bedroom.js';
 // import './partials/boids.js';

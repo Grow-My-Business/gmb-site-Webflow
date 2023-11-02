@@ -1,3 +1,44 @@
+.splide__track .splide__sr {
+  display: none;
+}
+
+.splide__arrows {
+  grid-gap: 12px;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 2em;
+}
+
+.splide__arrow {
+  background: none;
+  border: 1px solid #8b8b89;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  width: 2.5em;
+  height: 2.5em;
+  display: flex;
+}
+
+.splide__arrow svg {
+  max-width: .6em;
+}
+
+.splide__arrow--prev svg {
+  transform: scale3d(-1, 1, 1);
+}
+
+@media (width <= 768px) {
+  .splide__arrows {
+    grid-gap: 12px;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 1em;
+  }
+}
+
 .sidebar-dropdown .sidebar-dropdown-children {
   max-height: 0;
   transition: max-height .3s;

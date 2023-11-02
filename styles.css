@@ -1,6 +1,44 @@
-/* body {
-    background: black !important;
-} */
+.splide__track .splide__sr {
+    display: none;
+}
+
+.splide__arrows {
+    position: absolute;
+    bottom: 0;
+    right: 2em;
+    display: flex;
+    grid-gap: 12px;
+}
+
+.splide__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 100px;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid #8B8B89;
+    background: transparent;
+}
+
+.splide__arrow svg {
+    max-width: 0.6em;
+}
+
+.splide__arrow--prev svg {
+    transform: scale3d(-1, 1, 1);
+}
+
+@media (max-width: 768px) {
+    .splide__arrows {
+        position: absolute;
+        bottom: 0;
+        right: 1em;
+        display: flex;
+        grid-gap: 12px;
+    }
+}
 
 /* Sidebar */
 .sidebar-dropdown .sidebar-dropdown-children {

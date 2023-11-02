@@ -1,5 +1,3 @@
-console.log('confetti.js loaded');
-
 var Confetti = (function () {
     var t = (function () {
             return function () {
@@ -54,10 +52,10 @@ var Confetti = (function () {
                     }),
                     (this.setupElement = function (t) {
                         var n;
-                        (r.element = document.getElementById(t)),
+                        (r.element = document.querySelector(t)),
                             null === (n = r.element) ||
                                 void 0 === n ||
-                                n.addEventListener("load", function (t) {
+                                n.addEventListener("click", function (t) {
                                     var n = new o(2 * t.clientX, 2 * t.clientY);
                                     r.bursts.push(new i(n)), e.CONFIG.destroy_target && (r.element.style.visibility = "hidden");
                                 });
@@ -168,9 +166,25 @@ var Confetti = (function () {
     return e;
 })();
 
-let confetti = new Confetti('confetti');
+window.addEventListener('DOMContentLoaded', () => {
 
-confetti.setCount(75);
-confetti.setSize(1);
-confetti.setPower(25);
-confetti.setFade(false);
+    let confetti = new Confetti('h1');
+
+    confetti.setCount(75);
+    confetti.setSize(1);
+    confetti.setPower(25);
+    confetti.setFade(false);
+    confetti.destroyTarget(false);
+
+//    const confetti_elem = document.querySelector('h1');
+
+//    confetti_elem.addEventListener('click', (e) => {
+//        e.preventDefault();
+//    });
+
+$('h1').click();
+//    if (confetti_elem) {
+//        // Dispatch click event
+//    }
+
+});
