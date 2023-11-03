@@ -1,5 +1,5 @@
 import Splide from '@splidejs/splide';
-import { custom_transition } from './custom_transition.js';
+// import { custom_transition } from './custom_transition.js';
 
 document.addEventListener( 'DOMContentLoaded', function () {
     var splide = new Splide( '.splide', {
@@ -17,5 +17,5 @@ document.addEventListener( 'DOMContentLoaded', function () {
             },
         }
 
-      }).mount({}, custom_transition);
+      }).mount();
 });

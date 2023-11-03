@@ -675,7 +675,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _splide = require("@splidejs/splide");
 var _splideDefault = parcelHelpers.interopDefault(_splide);
-var _customTransitionJs = require("./custom_transition.js");
+// import { custom_transition } from './custom_transition.js';
 document.addEventListener("DOMContentLoaded", function() {
     var splide = new (0, _splideDefault.default)(".splide", {
         type: "loop",
@@ -691,10 +691,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 arrows: false
             }
         }
-    }).mount({}, (0, _customTransitionJs.custom_transition));
+    }).mount();
 });
 
-},{"@splidejs/splide":"5CJev","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./custom_transition.js":"eiLtn"}],"5CJev":[function(require,module,exports) {
+},{"@splidejs/splide":"5CJev","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5CJev":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CLASSES", ()=>CLASSES);
@@ -3769,46 +3769,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"eiLtn":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "custom_transition", ()=>custom_transition);
-var _splide = require("@splidejs/splide");
-function custom_transition(Splide, Components) {
-    const { bind } = (0, _splide.EventInterface)(Splide);
-    const { Move } = Components;
-    const { list } = Components.Elements;
-    let endCallback;
-    function mount() {
-        bind(list, "transitionend", (e)=>{
-            if (e.target === list && endCallback) {
-                // Removes the transition property
-                cancel();
-                // Calls the `done` callback
-                endCallback();
-            }
-        });
-    }
-    function start(index, done) {
-        // Converts the index to the position
-        const destination = Move.toPosition(index, true);
-        // Applies the CSS transition
-        list.style.transition = "transform 800ms cubic-bezier(0.45, 0.05, 0.55, 0.95) 0s";
-        // Moves the carousel to the destination.
-        Move.translate(destination);
-        // Keeps the callback to invoke later.
-        endCallback = done;
-    }
-    function cancel() {
-        list.style.transition = "";
-    }
-    return {
-        bind,
-        start,
-        cancel
-    };
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@splidejs/splide":"5CJev"}]},["cRheU","igcvL"], "igcvL", "parcelRequire92ed")
+},{}]},["cRheU","igcvL"], "igcvL", "parcelRequire92ed")
 
 //# sourceMappingURL=app.js.map
