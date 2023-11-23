@@ -4,10 +4,10 @@
 
 .splide__arrows {
     position: absolute;
-    bottom: 50px;
-    right: 2em;
+    top: calc(100% + 8px);
+    left: 16px;
     display: flex;
-    grid-gap: 12px;
+    grid-gap: 16px;
 }
 
 .splide__arrow {
@@ -15,15 +15,12 @@
     align-items: center;
     justify-content: center;
     
-    border-radius: 100px;
-    width: 2.5em;
-    height: 2.5em;
-    border: 1px solid #8B8B89;
-    background: transparent;
+    background: none;
+    padding: 0;
 }
 
 .splide__arrow svg {
-    max-width: 0.6em;
+    max-width: 0.75em;
 }
 
 .splide__arrow--prev svg {
